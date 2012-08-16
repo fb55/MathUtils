@@ -15,7 +15,10 @@ var MathUtils = module.exports = {
 	},
 
 	isPrime: function(num){
-		if(num & 1 === 0) return false; //the number is even
+		return MathUtils.fastIsPrime(num) && MathUtils.slowIsPrime(num);
+	},
+	slowIsPrime: function(num){
+		if(MathUtils.isEven(num)) return false;
 		for(var i = 3; i < num; i += 2){
 			if(num % i === 0) return false;
 		}
@@ -27,7 +30,7 @@ var MathUtils = module.exports = {
 
 	randomPrime: function(len){
 		var num = Math.floor(Math.pow(10, len || 3) * Math.random());
-		while(!MathUtils.fastIsPrime(num) && !MathUtils.isPrime(num)) num++;
+		while(!MathUtils.isPrime(num)) num++;
 		return num;
 	},
 
@@ -44,7 +47,7 @@ var MathUtils = module.exports = {
 	},
 
 	modularInverse: function(a, b){
-		var arr = this.egcd(a, b);
+		var arr = MathUtils.egcd(a, b);
 		//if(arr[1] * a + arr[2] * b !== arr[0]) throw Error("Wrong EGCD: " + sum);
 		return arr[1];
 	}
