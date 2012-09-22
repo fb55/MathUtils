@@ -30,7 +30,8 @@ var MathUtils = module.exports = {
 
 	randomPrime: function(len){
 		var num = Math.floor(Math.pow(10, len || 3) * Math.random());
-		while(!MathUtils.isPrime(num)) num++;
+		if(MathUtils.isEven(num)) num++;
+		while(!MathUtils.isPrime(num)) num += 2;
 		return num;
 	},
 
