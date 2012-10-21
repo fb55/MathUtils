@@ -19,7 +19,7 @@ var MathUtils = module.exports = {
 	},
 	slowIsPrime: function(num){
 		if(MathUtils.isEven(num)) return false;
-		for(var i = 3; i < num; i += 2){
+		for(var i = 3, max = Math.sqrt(num); i < max; i += 2){
 			if(num % i === 0) return false;
 		}
 		return true;
