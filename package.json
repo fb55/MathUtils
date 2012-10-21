@@ -1,6 +1,6 @@
 {
   "name": "mathutils",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "a collection of math-related functions",
   "main": "index.js",
   "scripts": {
@@ -16,5 +16,5 @@
     "powermod"
   ],
   "author": "Felix Boehm <me@feedic.com>",
-  "license": "BSD"
+  "license": "BSD-like"
 }
